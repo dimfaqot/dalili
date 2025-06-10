@@ -125,10 +125,26 @@
         </div>
     </div>
 
+    <!-- modal konfirmasi -->
+    <div class="modal fade" id="confirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+
+                <div class="modal-body text-center modal_confirm bg-dark">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="fixed-bottom pb-5 body_message" style="z-index: 999999;"></div>
     <script>
         let myModal = document.getElementById("update");
         let modal = bootstrap.Modal.getOrCreateInstance(myModal);
+
+        let myConfirm = document.getElementById("confirm");
+        let mdlConfirm = bootstrap.Modal.getOrCreateInstance(myConfirm);
+        // mdlConfirm.show();
 
         $(document).on('keyup', '.cari', function(e) {
             e.preventDefault();

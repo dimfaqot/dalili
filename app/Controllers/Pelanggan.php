@@ -9,12 +9,14 @@ class Pelanggan extends BaseController
     {
         $db = db('paket');
         $paket = $db->orderBy('paket', 'ASC')->get()->getResultArray();
-        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => rangkuman(), 'paket' => $paket]);
+
+        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => rangkuman('full'), 'paket' => $paket]);
     }
 
     public function add()
     {
         $nama = upper_first(clear($this->request->getVar('nama')));
+        $alamat = upper_first(clear($this->request->getVar('alamat')));
         $paket = upper_first(clear($this->request->getVar('paket')));
         $hp = clear($this->request->getVar('hp'));
 
@@ -27,6 +29,7 @@ class Pelanggan extends BaseController
         }
         $data = [
             'nama' => $nama,
+            'alamat' => $alamat,
             'paket' => $paket,
             'hp' => $hp,
             'petugas' => (session('id') ? session('id') : ""),
@@ -36,7 +39,6 @@ class Pelanggan extends BaseController
             'created_at' => time(),
             'updated_at' => time()
         ];
-
 
         if ($db->insert($data)) {
             sukses(base_url(menu()['url']), "Berhasil");
@@ -48,6 +50,7 @@ class Pelanggan extends BaseController
     {
         $id = clear($this->request->getVar('id'));
         $nama = upper_first(clear($this->request->getVar('nama')));
+        $alamat = upper_first(clear($this->request->getVar('alamat')));
         $paket = upper_first(clear($this->request->getVar('paket')));
         $status = (clear($this->request->getVar('status')) == "on" ? 1 : 0);
         $hp = clear($this->request->getVar('hp'));
@@ -78,6 +81,7 @@ class Pelanggan extends BaseController
 
 
         $q['nama'] = $nama;
+        $q['alamat'] = $alamat;
         $q['harga'] = $pkt['harga'];
         $q['paket'] = $paket;
         $q['status'] = $status;

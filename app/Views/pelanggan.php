@@ -43,6 +43,10 @@
                         <label class="form-label">Hp</label>
                         <input type="text" class="form-control" name="hp" placeholder="Hp" required>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
+                    </div>
                     <select class="form-select mb-3" name="paket">
                         <?php foreach ($paket as $i): ?>
                             <option value="<?= $i['paket']; ?>"><?= $i['paket']; ?></option>
@@ -125,6 +129,10 @@
                         <label class="form-label">Hp</label>
                         <input type="text" class="form-control" name="hp" value="${val.hp}" placeholder="Hp" required>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" class="form-control" name="alamat" value="${val.alamat}" placeholder="Alamat" required>
+                    </div>
                       <div class="mb-3">
                         <label class="form-label">Paket</label>
                     <select class="form-select mb-3" name="paket">`;
@@ -187,6 +195,7 @@
                 html += `${res.message}`;
             } else {
                 res.data.forEach((e, i) => {
+
                     html += `<div class="card mb-3">
                             <div class="card-body border">
                                 <div class="d-flex justify-content-between">
@@ -207,29 +216,37 @@
 
                     html += `</div>
     
-                            </div>
-                            <div class="bg-light">
+                            </div>`;
+
+                    if (e.id == "0") {
+                        html += `<div class="bg-light">
                                 <div class="d-flex justify-content-center pt-2" style="font-size:14px;">
                                     <div class="text-center">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="metode${i}" value="" ${(e.metode==""?"checked":"")}>
                                             <label class="form-check-label">Belum</label>
                                         </div>`;
-                    metode.forEach(m => {
-                        html += `<div class="form-check form-check-inline">
+                        metode.forEach(m => {
+                            html += `<div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="metode${i}" value="${m}" ${(e.metode==m?"checked":"")}>
                                                     <label class="form-check-label">${m}</label>
                                                 </div>`;
 
-                    })
+                        })
+                        html += `</div>
+                                </div>`;
+                        html += `<div class="d-grid">
+                                                    <button class="btn btn-success btn_lunas" data-i="${i}" data-periode="${e.periode}" data-id="${e.pelanggan_id}" style="border-radius: 0px;">LUNAS</button>
+                                                </div>`;
+                    } else {
+                        html += `<div class="bg-light text-center pb-1">
+                                        <div>Metode <b><i>${e.metode}</i></b></div>
+                                        <div><a style="text-decoration:none" class="badge text-bg-danger confirm" data-message="Yakin cancel pembayaran?" data-tabel="pembayaran" data-id="${e.id}">Cancel</a></div>
+                                </div>`;
+                    }
+
+
                     html += `</div>
-                                </div>
-    
-                                <div class="d-grid">
-                                    <button class="btn btn-success btn_lunas" data-i="${i}" data-periode="${e.periode}" data-id="${e.pelanggan_id}" style="border-radius: 0px;">LUNAS</button>
-                                </div>
-    
-                            </div>
                         </div>`;
 
                 })
@@ -303,6 +320,43 @@
 
         location.href = url;
         // window.open(url);
+    });
+    $(document).on('click', '.confirm', function(e) {
+        e.preventDefault();
+        let message = $(this).data('message');
+        let tabel = $(this).data('tabel');
+        let id = $(this).data('id');
+
+        let html = `<div class="text-light mt-5">${message}</div>
+                    <div class="d-flex justify-content-center gap-2 mt-3 text-light">
+                        <button class="btn btn-sm btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button class="btn btn-sm btn-danger px-3 delete" data-tabel="${tabel}" data-id="${id}">Ya</button>
+                    </div>`;
+
+        $(".modal_confirm").html(html);
+        mdlConfirm.show();
+    });
+    $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+
+        let tabel = $(this).data('tabel');
+        let id = $(this).data('id');
+
+        post("delete", {
+            id,
+            tabel
+        }).then(res => {
+            message(res.message);
+            if (res.status == 200) {
+                setTimeout(() => {
+                    location.reload();
+                }, 1200);
+            } else {
+                message(res.message);
+            }
+        })
+
+
     });
 </script>
 

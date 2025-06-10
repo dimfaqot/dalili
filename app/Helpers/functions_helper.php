@@ -203,8 +203,9 @@ function settings($req = null)
     }
 }
 
-function rangkuman()
+function rangkuman($order = null)
 {
+
     $db = db('pelanggan');
     $pelanggan = $db->orderBy('nama', 'ASC')->get()->getResultArray();
 
@@ -212,13 +213,18 @@ function rangkuman()
 
     $users = [];
     foreach ($pelanggan as $i) {
-        if ($i['status'] == 0 && $i['mulai_langganan'] == 0) {
+
+        if ($i['status'] == 0 && $i['mulai_langganan'] == 0 && $order == null) {
             continue;
         }
         $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y"));
 
         if ($i['status'] == 0) {
-            $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y", $i['akhir_langganan']));
+            if ($i['mulai_langganan'] == 0) {
+                $tahun = [(int)date('Y')];
+            } else {
+                $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y", $i['akhir_langganan']));
+            }
         }
         $i['tahun'] = $tahun;
         $users[] = $i;
