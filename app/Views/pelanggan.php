@@ -12,7 +12,7 @@
         <div class="card-body border">
             <div class="d-flex justify-content-between">
                 <div>
-                    <h4><i class="fa-solid fa-circle <?= ($i['total'] > 0 ? "text-warning" : ($i['identitas']['status'] == 1 ? "text-success" : "text-danger")); ?>"></i> <?= $i['identitas']['nama']; ?></h4>
+                    <h4><i class="fa-solid fa-circle <?= (($i['identitas']['status'] == 0 && $i['identitas']['mulai_langganan'] == 0 ? "text-secondary" : ($i['total'] > 0 ? "text-warning" : ($i['identitas']['status'] == 1 ? "text-success" : "text-danger")))); ?>"></i> <?= $i['identitas']['nama']; ?></h4>
                     <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> | <?= ($i['identitas']['status'] == 1 ? date("d/m/Y", $i['identitas']['mulai_langganan']) : date("d/m/Y", $i['identitas']['mulai_langganan']) . ' - ' . date("d/m/Y", $i['identitas']['akhir_langganan'])); ?></small>
                 </div>
                 <div>
