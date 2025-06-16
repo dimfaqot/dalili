@@ -8,12 +8,33 @@
 </div>
 
 <?php foreach ($data as $i): ?>
+    <?php
+    $text = 'text-secondary';
+    $tgl = "-";
+    if ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] == 0) {
+        $text = 'text-danger';
+    } elseif ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] > 0) {
+        $text = 'text-warning';
+    } elseif ($i['identitas']['status'] == 1  && $i['total'] > 0) {
+        $text = 'text-warning';
+    } elseif ($i['identitas']['status'] == 1  && $i['total'] == 0) {
+        $text = 'text-success';
+    }
+
+    if ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] > 0) {
+        $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']) . ' - ' . date('d/m/Y', $i['identitas']['akhir_langganan']);
+    } elseif ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] == 0) {
+        $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']);
+    }
+
+
+    ?>
     <div class="card mb-3 target_search" data-target="<?= $i['identitas']['nama']; ?>">
         <div class="card-body border">
             <div class="d-flex justify-content-between">
                 <div>
-                    <h4><i class="fa-solid fa-circle <?= (($i['identitas']['status'] == 0 && $i['identitas']['mulai_langganan'] == 0 ? "text-secondary" : ($i['total'] > 0 ? "text-warning" : ($i['identitas']['status'] == 1 ? "text-success" : "text-danger")))); ?>"></i> <?= $i['identitas']['nama']; ?></h4>
-                    <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> | <?= ($i['identitas']['status'] == 1 ? date("d/m/Y", $i['identitas']['mulai_langganan']) : date("d/m/Y", $i['identitas']['mulai_langganan']) . ' - ' . date("d/m/Y", $i['identitas']['akhir_langganan'])); ?></small>
+                    <h4><i class="fa-solid fa-circle <?= $text; ?>"></i> <?= $i['identitas']['nama']; ?></h4>
+                    <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> <?= ($tgl == "-" ? "-" : " | " . $tgl); ?></small>
                 </div>
                 <div>
                     <div><a href="" class="update" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-pen-to-square"></i> Update <i class="fa-solid fa-chevron-right"></i></a></div>
@@ -241,7 +262,7 @@
                     } else {
                         html += `<div class="bg-light text-center pb-1">
                                         <div>Metode <b><i>${e.metode}</i></b></div>
-                                        <div><a style="text-decoration:none" class="badge text-bg-danger confirm" data-message="Yakin cancel pembayaran?" data-tabel="pembayaran" data-id="${e.id}">Cancel</a></div>
+                                        <div style="cursor:pointer"><a style="text-decoration:none" class="badge text-bg-danger confirm" data-message="Yakin cancel pembayaran?" data-tabel="pembayaran" data-id="${e.id}">Cancel</a></div>
                                 </div>`;
                     }
 
