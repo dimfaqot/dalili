@@ -20,7 +20,7 @@ foreach ($data as $i) {
     </a>
     <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#detail_belum_bayar" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
         <div class="card-body text-center">
-            <h2 class="card-title"><?= angka(count($data)); ?></h2>
+            <h2 class="card-title"><?= angka($total); ?></h2>
             <p class="card-text">Belum Bayar</p>
         </div>
     </a>

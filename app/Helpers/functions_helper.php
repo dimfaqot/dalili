@@ -231,6 +231,7 @@ function rangkuman($order = null)
     }
 
     $data = [];
+    $total_belum_bayar = 0;
 
     foreach ($users as $i) {
 
@@ -256,6 +257,7 @@ function rangkuman($order = null)
                         $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "L"];
                     } else {
                         $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "H"];
+                        $total_belum_bayar++;
                         $total++;
                     }
                 }

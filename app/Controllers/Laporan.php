@@ -14,7 +14,7 @@ class Laporan extends BaseController
         $builder->where("YEAR(FROM_UNIXTIME(tgl))", $tahun);
 
         $data = $builder->get()->getResultArray();
-
+        dd($data);
         $set = [
             'mode' => 'utf-8',
             'format' => [210, 330],
