@@ -10,6 +10,8 @@ $routes->get('/', 'Landing::index');
 
 $routes->get('/home', 'Home::index');
 $routes->post('/delete', 'Home::delete');
+$routes->post('home/update_profile', 'Home::update_profile');
+$routes->post('home/update_data', 'Home::update_data');
 
 $routes->get('/paket', 'Paket::index');
 $routes->post('/paket/add', 'Paket::add');
