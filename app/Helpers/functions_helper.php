@@ -203,20 +203,24 @@ function settings($req = null)
     }
 }
 
-function rangkuman($order = null)
+function rangkuman($alamat = null, $order = null)
 {
 
     $db = db('pelanggan');
-    $pelanggan = $db->orderBy('nama', 'ASC')->get()->getResultArray();
+    $db;
+    if ($alamat !== null) {
+        $db->where('alamat', $alamat);
+    }
+    $pelanggan = $db->orderBy('nama', 'ASC')->orderBy('ket', 'ASC')->get()->getResultArray();
 
     $db = db('pembayaran');
 
     $users = [];
     foreach ($pelanggan as $i) {
 
-        if ($i['status'] == 0 && $i['mulai_langganan'] == 0 && $order == null) {
-            continue;
-        }
+        // if ($i['status'] == 0 && $i['mulai_langganan'] == 0 && $order == null) {
+        //     continue;
+        // }
         $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y"));
 
         if ($i['status'] == 0) {
@@ -225,6 +229,14 @@ function rangkuman($order = null)
             } else {
                 $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y", $i['akhir_langganan']));
             }
+        }
+
+        $i['nama'] = $i['nama'];
+        if ($i['alamat'] !== "") {
+            $i['nama'] .= " " . $i['alamat'];
+        }
+        if ($i['ket'] !== "") {
+            $i['nama'] .= " " . $i['ket'];
         }
         $i['tahun'] = $tahun;
         $users[] = $i;
@@ -265,6 +277,23 @@ function rangkuman($order = null)
         }
 
         $data[] = ['identitas' => $i, 'total' => $total, 'data' => $temp];
+    }
+
+    return $data;
+}
+
+
+function options($jenis)
+{
+
+    $db = db('options');
+
+    $q = $db->where('jenis', $jenis)->get()->getResultArray();
+
+    $data = [];
+
+    foreach ($q as $i) {
+        $data[] = $i['value'];
     }
 
     return $data;

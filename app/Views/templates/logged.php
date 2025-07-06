@@ -12,6 +12,23 @@
     <script src="<?= base_url(); ?>jquery.js"></script>
     <link rel="stylesheet" href="<?= base_url('bootstrap'); ?>/css/bootstrap.min.css">
     <script src="<?= base_url('bootstrap'); ?>/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .data_list {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            left: 0;
+            z-index: 99999;
+            background-color: aliceblue;
+
+        }
+
+        .data_list div {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
     <script>
         const message = (message) => {
             let html = `<div class="d-flex justify-content-center">
@@ -136,6 +153,14 @@
             </div>
         </div>
     </div>
+    <!-- modal on modal -->
+    <div class="modal fade" id="on_modal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-5 body_on_modal" style="background-color: transparent;">
+
+            </div>
+        </div>
+    </div>
 
     <div class="fixed-bottom pb-5 body_message" style="z-index: 999999;"></div>
     <script>
@@ -145,6 +170,10 @@
         let myConfirm = document.getElementById("confirm");
         let mdlConfirm = bootstrap.Modal.getOrCreateInstance(myConfirm);
         // mdlConfirm.show();
+
+        let onModal = document.getElementById("on_modal");
+        let mdlOnModal = bootstrap.Modal.getOrCreateInstance(onModal);
+
 
         $(document).on('keyup', '.cari', function(e) {
             e.preventDefault();

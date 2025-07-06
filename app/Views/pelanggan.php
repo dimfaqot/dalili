@@ -1,49 +1,59 @@
 <?= $this->extend('templates/logged') ?>
 
 <?= $this->section('content') ?>
+
+<div class="my-2" style="position: relative;">
+    <span class="text_main" style="font-size: small;">Alamat</span>
+    <input type="text" class="mb-2 form-control alamat" value="<?= options('alamat')[0]; ?>" placeholder="Alamat">
+    <div class="data_list"></div>
+</div>
+
 <div class="d-flex my-3 gap-3">
     <div class="w-100"><input type="text" class="form-control search" placeholder="Cari"></div>
     <div class="flex-shrink-1"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Tambah</button></div>
-
 </div>
 
-<?php foreach ($data as $i): ?>
-    <?php
-    $text = 'text-secondary';
-    $tgl = "-";
-    if ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] == 0) {
-        $text = 'text-danger';
-    } elseif ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] > 0) {
-        $text = 'text-warning';
-    } elseif ($i['identitas']['status'] == 1  && $i['total'] > 0) {
-        $text = 'text-warning';
-    } elseif ($i['identitas']['status'] == 1  && $i['total'] == 0) {
-        $text = 'text-success';
-    }
 
-    if ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] > 0) {
-        $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']) . ' - ' . date('d/m/Y', $i['identitas']['akhir_langganan']);
-    } elseif ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] == 0) {
-        $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']);
-    }
+<div class="content">
+    <div class="mb-2" style="font-size: small;">TOTAL: <?= angka(count($data)); ?></div>
+    <?php foreach ($data as $i): ?>
+        <?php
+        $text = 'text-secondary';
+        $tgl = "-";
+        if ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] == 0) {
+            $text = 'text-danger';
+        } elseif ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] > 0) {
+            $text = 'text-warning';
+        } elseif ($i['identitas']['status'] == 1  && $i['total'] > 0) {
+            $text = 'text-warning';
+        } elseif ($i['identitas']['status'] == 1  && $i['total'] == 0) {
+            $text = 'text-success';
+        }
+
+        if ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] > 0) {
+            $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']) . ' - ' . date('d/m/Y', $i['identitas']['akhir_langganan']);
+        } elseif ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] == 0) {
+            $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']);
+        }
 
 
-    ?>
-    <div class="card mb-3 target_search" data-target="<?= $i['identitas']['nama']; ?>">
-        <div class="card-body border">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <h4><i class="fa-solid fa-circle <?= $text; ?>"></i> <?= $i['identitas']['nama']; ?></h4>
-                    <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> <?= ($tgl == "-" ? "-" : " | " . $tgl); ?></small>
-                </div>
-                <div>
-                    <div><a href="" class="update" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-pen-to-square"></i> Update <i class="fa-solid fa-chevron-right"></i></a></div>
-                    <div><a href="" class="text-success tagihan" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-receipt"></i> Tagihan <i class="fa-solid fa-chevron-right"></i></a></div>
+        ?>
+        <div class="card mb-3 target_search" data-target="<?= $i['identitas']['nama']; ?>">
+            <div class="card-body border">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6><i class="fa-solid fa-circle <?= $text; ?>"></i> <?= $i['identitas']['nama']; ?></h6>
+                        <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> <?= ($tgl == "-" ? "-" : " | " . $tgl); ?></small>
+                    </div>
+                    <div>
+                        <div><a href="" class="update" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-pen-to-square"></i> Update <i class="fa-solid fa-chevron-right"></i></a></div>
+                        <div><a href="" class="text-success tagihan" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-receipt"></i> Tagihan <i class="fa-solid fa-chevron-right"></i></a></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
+</div>
 
 
 <!-- modal add -->
@@ -66,8 +76,13 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Alamat</label>
-                        <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
+                        <input type="text" class="form-control add_alamat on_modal" data-order="add" name="alamat" placeholder="Alamat" required readonly>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ket</label>
+                        <input type="text" class="form-control" name="ket" placeholder="Ket" required>
+                    </div>
+
                     <select class="form-select mb-3" name="paket">
                         <?php foreach ($paket as $i): ?>
                             <option value="<?= $i['paket']; ?>"><?= $i['paket']; ?></option>
@@ -152,7 +167,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Alamat</label>
-                        <input type="text" class="form-control" name="alamat" value="${val.alamat}" placeholder="Alamat" required>
+                        <input type="text" class="form-control update_alamat on_modal" data-order="update" name="alamat" value="${val.alamat}" placeholder="Alamat" required readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ket</label>
+                        <input type="text" class="form-control" name="ket" placeholder="Ket" value="${val.ket}" required>
                     </div>
                       <div class="mb-3">
                         <label class="form-label">Paket</label>
@@ -377,6 +396,130 @@
             }
         })
 
+
+    });
+
+    $(document).on('keyup', '.alamat', function(e) {
+        e.preventDefault();
+        let val = $(this).val();
+
+        post("pelanggan/alamat", {
+            val
+        }).then(res => {
+            let html = "";
+            if (res.data.length == 0) {
+                html += '<div>Data tidak ditemukan!.</div>';
+            }
+            res.data.forEach((e, i) => {
+                html += '<div class="select_list">' + e + '</div>';
+            })
+
+            $(".data_list").html(html);
+        })
+    });
+
+
+    $(document).on('click', '.select_list', function(e) {
+        e.preventDefault();
+        let alamat = $(this).text();
+
+        post("pelanggan/pelanggan_by_alamat", {
+            alamat
+        }).then(res => {
+            data = res.data;
+
+            let html = ' <div class="mb-2" style="font-size: small;">TOTAL: ' + angka(data.length) + '</div>';
+            data.forEach((i, e) => {
+                let text = 'text-secondary';
+                let tgl = "-";
+                if (i['identitas']['status'] == 0 && i['identitas']['akhir_langganan'] > 0 && i['total'] == 0) {
+                    text = 'text-danger';
+                } else if (i['identitas']['status'] == 0 && i['identitas']['akhir_langganan'] > 0 && i['total'] > 0) {
+                    text = 'text-warning';
+                } else if (i['identitas']['status'] == 1 && i['total'] > 0) {
+                    text = 'text-warning';
+                } else if (i['identitas']['status'] == 1 && i['total'] == 0) {
+                    text = 'text-success';
+                }
+
+                if (i['identitas']['mulai_langganan'] > 0 && i['identitas']['akhir_langganan'] > 0) {
+                    tgl = time_php_to_js(i['identitas']['mulai_langganan']) + ' - ' + time_php_to_js(i['identitas']['akhir_langganan']);
+                } else if (i['identitas']['mulai_langganan'] > 0 && i['identitas']['akhir_langganan'] == 0) {
+                    tgl = time_php_to_js(i['identitas']['mulai_langganan']);
+                }
+
+                html += `<div class="card mb-3 target_search" data-target="${i['identitas']['nama']}">
+            <div class="card-body border">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6><i class="fa-solid fa-circle ${text}"></i> ${i['identitas']['nama']}</h6>
+                        <small class="${(i['identitas']['status'] == 0 ? "text-danger" : "text-success")}">${i['identitas']['paket']} ${(tgl == "-" ? "-" : " | "+ tgl)}</small>
+                    </div>
+                    <div>
+                        <div><a href="" class="update" data-id="${i['identitas']['id']}" style="text-decoration: none;"><i class="fa-solid fa-pen-to-square"></i> Update <i class="fa-solid fa-chevron-right"></i></a></div>
+                        <div><a href="" class="text-success tagihan" data-id="${i['identitas']['id']}" style="text-decoration: none;"><i class="fa-solid fa-receipt"></i> Tagihan <i class="fa-solid fa-chevron-right"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+            })
+
+            $(".content").html(html);
+            $(".data_list").html("");
+            $(".alamat").val(alamat);
+        })
+    });
+
+    $(document).on('click', '.on_modal', function(e) {
+        e.preventDefault();
+        let order = $(this).data("order");
+        let html = "";
+        html += `<div class="modal-body text-center">
+                    <div class="my-2 bg-info p-2 rounded" style="position: relative;">
+                        <span class="text_main" style="font-size: small;">Alamat</span>
+                        <input type="text" data-order="${order}" class="mb-2 form-control alamat_on_modal" placeholder="Cari alamat...">
+                        <div class="data_on_modal">
+                           
+                        </div>
+                    </div>
+                </div>`;
+
+        $(".body_on_modal").html(html);
+        mdlOnModal.show();
+    });
+
+    $(document).on('keyup', '.alamat_on_modal', function(e) {
+        e.preventDefault();
+        let val = $(this).val();
+        let order = $(this).data("order");
+
+        post("pelanggan/alamat", {
+            val
+        }).then(res => {
+            let html = `<div class="d-flex justify-content-center flex-column"><div>`;
+            if (res.data.length == 0) {
+                html += '<div>Data tidak ditemukan!.</div>';
+            } else {
+                res.data.forEach((e, i) => {
+                    html += `<div class="py-1 select_on_modal" data-to_class="${order}_alamat" style="text-align: left;cursor:pointer;border-bottom:1px solid white">${e}</div>`;
+                })
+
+            }
+            html += `</div></div>`;
+            $(".data_on_modal").html(html);
+        })
+    });
+    $(document).on('click', '.select_on_modal', function(e) {
+        e.preventDefault();
+        let val = $(this).text();
+        let to_class = $(this).data("to_class");
+
+        $("." + to_class).val(val);
+
+        $(".data_on_modal").html("");
+        $(".body_on_modal").html("");
+        mdlOnModal.hide();
 
     });
 </script>

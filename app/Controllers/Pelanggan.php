@@ -10,13 +10,15 @@ class Pelanggan extends BaseController
         $db = db('paket');
         $paket = $db->orderBy('paket', 'ASC')->get()->getResultArray();
 
-        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => rangkuman('full'), 'paket' => $paket]);
+
+        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => rangkuman(options('alamat')[0], 'full'), 'paket' => $paket]);
     }
 
     public function add()
     {
         $nama = upper_first(clear($this->request->getVar('nama')));
         $alamat = upper_first(clear($this->request->getVar('alamat')));
+        $ket = upper_first(clear($this->request->getVar('ket')));
         $paket = upper_first(clear($this->request->getVar('paket')));
         $hp = clear($this->request->getVar('hp'));
 
@@ -30,6 +32,7 @@ class Pelanggan extends BaseController
         $data = [
             'nama' => $nama,
             'alamat' => $alamat,
+            'ket' => $ket,
             'paket' => $paket,
             'hp' => $hp,
             'petugas' => (session('id') ? session('id') : ""),
@@ -51,6 +54,7 @@ class Pelanggan extends BaseController
         $id = clear($this->request->getVar('id'));
         $nama = upper_first(clear($this->request->getVar('nama')));
         $alamat = upper_first(clear($this->request->getVar('alamat')));
+        $ket = upper_first(clear($this->request->getVar('ket')));
         $paket = upper_first(clear($this->request->getVar('paket')));
         $status = (clear($this->request->getVar('status')) == "on" ? 1 : 0);
         $hp = clear($this->request->getVar('hp'));
@@ -82,6 +86,7 @@ class Pelanggan extends BaseController
 
         $q['nama'] = $nama;
         $q['alamat'] = $alamat;
+        $q['ket'] = $ket;
         $q['harga'] = $pkt['harga'];
         $q['paket'] = $paket;
         $q['status'] = $status;
@@ -248,5 +253,32 @@ class Pelanggan extends BaseController
         } else {
             gagal_js("Gagal");
         }
+    }
+
+    public function alamat()
+    {
+        $val = clear($this->request->getVar('val'));
+
+        $db = db('options');
+        $q = $db->whereIn('jenis', ['Alamat'])->like('value', $val, 'both')->orderBy('value', 'ASC')->limit(10)->get()->getResultArray();
+
+        $data = [];
+
+        foreach ($q as $i) {
+            $data[] = $i['value'];
+        }
+
+
+        sukses_js("Ok", $data);
+    }
+
+    public function pelanggan_by_alamat()
+    {
+        $alamat = clear($this->request->getVar('alamat'));
+
+        $data = rangkuman($alamat);
+
+
+        sukses_js("Ok", $data);
     }
 }

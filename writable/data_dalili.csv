@@ -1,0 +1,422 @@
+;MARGO ASRI;;;TF;CSH;R;BL;Alamat;Ket
+1;Pak Suparman;20/12/2020; IDR 100,000 ;;;; ;Margoasri;G 9
+2;Pak Untung;12/02/2020; IDR 100,000 ;;;;;Margoasri;G 9
+3;Pak Wawan;12/02/2020; IDR 100,000 ;;;;;Margoasri;G 9
+4;Mas Ridwan;12/11/2020; IDR 150,000 ;;;;;Margoasri;G 9
+5;Teguh Servis;25/06/2022; IDR 100,000 ;;;;;Margoasri;G 9
+6;Pak Totok;28/11/2020; IDR 150,000 ;;;;;Margoasri;G 9
+7;Pak Ardian;12/01/2020; IDR 150,000 ;;;;;Margoasri;G 9
+8;Bu Eni;10/01/2023; IDR 150,000 ;;;;;Margoasri;Toko G 9
+9;Pak Bambang;08/06/2022; IDR 100,000 ;;;;;Margoasri;G 9
+10;Bu totok;10/01/2022; IDR 150,000 ;;;;;Margoasri;G 9
+11;Heri;13/08/2023; IDR 150,000 ;;;;;Margoasri;G 9
+12;Yulianto;22/06/2024; IDR 100,000 ;;;;;Margoasri;G 9
+13;Bu Harno;11/03/2024; IDR 100,000 ;;;;;Margoasri;G 9
+14;Mas Agung;25/11/2020; IDR 100,000 ;;;;;Margoasri;
+15;Amora;16/10/2021; IDR 100,000 ;;;;;Margoasri;Daster G 10
+16;Pak Pamuji;22/09/2022; IDR 150,000 ;;;;;Margoasri;G 10
+17;Zainudin;27/06/2023; IDR 150,000 ;;;;;Margoasri;G 10
+18;Zainudin;26/12/2024; IDR 100,000 ;;;;;Margoasri;Online G 10
+19;Bu Giyono;21/01/2023; IDR 100,000 ;;;;;Margoasri;G 10
+20;Bu Yayuk  ;11/08/2023; IDR 100,000 ;;;;;Margoasri;G 10
+21;Masruri;27/12/2021; IDR 100,000 ;;;;;Margoasri;G 11
+22;Khusnul;11/10/2023; IDR 150,000 ;;;;;Margoasri;G 11
+23;Wawan;01/02/2025; IDR 150,000 ;;;;;Margoasri;G 11
+24;Septian;27/04/2021; IDR 100,000 ;;;;;Margoasri;G 7
+25;Bu Anik;05/07/2021; IDR 100,000 ;;;;;Margoasri;G 3
+26;Pak Agung;06/12/2022; IDR 100,000 ;;;;;Margoasri;G 3
+27;Anang;29/06/2022; IDR 100,000 ;;;;;Margoasri;G 3
+28;Pak Hendrik;28/12/2022; IDR 100,000 ;;;;;Margoasri;G 3
+29;Pius;08/08/2021; IDR 100,000 ;;;;;Margoasri;G 6
+30;Mbokde Warni;28/02/2022; IDR 100,000 ;;;;;Margoasri;
+31;Bu Kepala;08/11/2021; IDR 100,000 ;;;;;Margoasri;G 8
+32;Pak Edi Devi;27/04/2022; IDR 100,000 ;;;;;Margoasri;G 8
+33;Bu Anti;02/04/2023; IDR 100,000 ;;;;;Margoasri;G 8
+34;Pak Surya Kurnia;12/07/2022; IDR 150,000 ;;;;;Margoasri;G 8
+35;Pak Ragil;16/12/2022; IDR 150,000 ;;;;;Margoasri;G 8
+36;Sapto;08/10/2024; IDR 150,000 ;;;;;Margoasri;G 8
+37;Pak Topo;10/08/2023; IDR 150,000 ;;;;;Margoasri;G 8
+38;Pak Harsono;01/05/2023; IDR 100,000 ;;;;;Margoasri;G 14
+39;Mbak Tri;01/05/2023; IDR 100,000 ;;;;;Margoasri;G 14
+40;Mas Wawan;13/01/2023; IDR 150,000 ;;;;;Margoasri;G 1
+41;Bu Anjar;07/06/2024; IDR 100,000 ;;;;;Margoasri;G 1
+42;Srimuryani;02/09/2024; IDR 100,000 ;;;;;Margoasri;G 1
+43;Pak  Agus;31/03/2024; IDR 100,000 ;;;;;Margoasri;G 1
+44;Pak Sugiyatno;22/12/2022; IDR 150,000 ;;;;;Margoasri;G 2
+45;Bu Atik;02/02/2023; IDR 100,000 ;;;;;Margoasri;G 2
+46;Rafi;13/06/2023; IDR 150,000 ;;;;;Margoasri;G 15
+47;Rega;25/01/2024; IDR 100,000 ;;;;;Margoasri;G 12
+48;Inggil;12/09/2024; IDR 100,000 ;;;;;Margoasri;G 12
+49;Pak Jarot Ibu Tin;23/09/2022; IDR 100,000 ;;;;;Margoasri;G 12
+50;Ryan Ana;21/04/2025; IDR 100,000 ;;;;;Margoasri;G 12
+51;Iwan;26/12/2024; IDR 100,000 ;;;;;Margoasri;G 5
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;KARANG;;;TF;CSH;R;BL;;
+1;Mas Edi Karang;11/06/2022; IDR 100,000 ;;;;;;
+2;Zahro Karang;16/12/2022; IDR 100,000 ;;;;;;
+3;Dwi Supriyanto Karang;04/08/2023; IDR 100,000 ;;;;;;
+4;Pipit Karang;04/08/2023; IDR 100,000 ;;;;;;
+5;Sugiman Karang;17/04/2023; IDR 100,000 ;;;;;;
+6;Elly Herlina  Karang;01/11/2024; IDR 100,000 ;;;;;;
+7;Dedi Karang;27/07/2024; IDR 100,000 ;;;;;;
+8;Wuri Karang;05/04/2023; IDR 100,000 ;;;;;;
+9;Didit Karang;31/07/2024; IDR 100,000 ;;;;;;
+10;Endang Sugiono Karang;14/05/2025; IDR 100,000 ;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;MARGOMULYO;;;TF;CSH;R;BL;;
+1;Mbak Jeki;24/11/2020; IDR 100,000 ;;;;;;
+2;Harno Margomulyo;26/11/2020; IDR 100,000 ;;;;;;
+3;Mbak Tanti Margomulyo;12/07/2020; IDR 100,000 ;;;;;;
+4;Bakso Dita;27/08/2021; IDR 100,000 ;;;;;;
+5;Raul Margomulyo;15/01/2022; IDR 150,000 ;;;;;;
+6;Joko Margomulyo;15/01/2022; IDR 100,000 ;;;;;;
+7;Bp Tri Margomulyo;16/01/2022; IDR 100,000 ;;;;;;
+8;bp guntur;17/01/2022; IDR 150,000 ;;;;;;
+9;Jadid Kabul Margomulyo;29/01/2025; IDR 100,000 ;;;;;;
+10;Fadnan Margomulyo;02/07/2025; IDR 100,000 ;;;;;;
+11;Mas Dwi Margomulyo;02/08/2021; IDR 150,000 ;;;;;;
+12;Bp Supadi bengkel rogo;29/12/2021; IDR 150,000 ;;;;;;
+13;Pakde Tardi Margomulyo;07/07/2021; IDR 100,000 ;;;;;;
+14;Mas Agung Terik;13/06/2021; IDR 150,000 ;;;;;;
+15;Pak Jarwi Margomulyo;08/10/2021; IDR 100,000 ;;;;;;
+16;ibu Darni Margomulyo;26/05/2022; IDR 100,000 ;;;;;;
+17;Bp Giyat Margomulyo;13/03/2022; IDR 100,000 ;;;;;;
+18;Bp Widodo Margomulyo;23/01/2022; IDR 150,000 ;;;;;;
+19;Mas Ari Margomulyo;16/07/2022; IDR 200,000 ;;;;;;
+20;Bp Widi Margomulyo;18/08/2022; IDR 100,000 ;;;;;;
+21;Bp Gunadi Margomulyo;11/03/2022; IDR 150,000 ;;;;;;
+22;Parman Margomulyo;30/12/2022; IDR 100,000 ;;;;;;
+23;Ibu Sri Yadi Margomulyo;14/01/2023; IDR 100,000 ;;;;;;
+24;Dilla Margomulyo;03/03/2023; IDR 100,000 ;;;;;;
+25;Toko Kayu margomulyo;05/11/2023; IDR 100,000 ;;;;;;
+26;Ibu Dian Margomulyo;10/04/2023; IDR 100,000 ;;;;;;
+27;Ibu Nanik Budianti margomulyo;09/12/2024; IDR 100,000 ;;;;;;
+28;Warsito Margomulyo;22/01/2024; IDR 100,000 ;;;;;;
+29;Mbh Wiryo Margomulyo;22/01/2024; IDR 100,000 ;;;;;;
+30;Mbh Sunardi Margomulyo;17/02/2025; IDR 100,000 ;;;;;;
+31;Roni Margomulyo;18/02/2024; IDR 100,000 ;;;;;;
+32;Bp Sutris margomulyo;28/01/2024; IDR 150,000 ;;;;;;
+33;Bp Paryanto Margomulyo;28/01/2024; IDR 150,000 ;;;;;;
+34;Pak Eko Margomulyo;14/03/2024; IDR 100,000 ;;;;;;
+35;Giyo Margomulyo;29/02/2024; IDR 100,000 ;;;;;;
+36;Bp Tamtamo Margomulyo;06/09/2024; IDR 100,000 ;;;;;;
+37;Rasyid Darno margomulyo;15/07/2023; IDR 100,000 ;;;;;;
+38;Hartono margomulyo;; IDR 100,000 ;;;;;;
+39;;;;;;;;;
+;PURO;;;TF;CSH;R;BL;;
+1;Bp Kamto Puro;21/02/2022; IDR 100,000 ;;;;;;
+2;Aldo Puro;04/01/2022; IDR 100,000 ;;;;;;
+3;Tiwi Puro;28/02/2022; IDR 100,000 ;;;;;;
+4;Ibu Jumbadi Puro;03/03/2022; IDR 100,000 ;;;;;;
+5;Pak Saiman Puro;10/08/2022; IDR 100,000 ;;;;;;
+6;Kiswadi Puro;04/01/2023; IDR 150,000 ;;;;;;
+7;Erik  Puro;04/04/2023; IDR 150,000 ;;;;;;
+8;Ratih Puro;14/04/2023; IDR 100,000 ;;;;;;
+9;Wartri  Tumpang Puro;05/08/2023; IDR 100,000 ;;;;;;
+10;Teguh Beti  Puro;23/09/2023; IDR 100,000 ;;;;;;
+11;Desti Dela Puro;24/09/2023; IDR 100,000 ;;;;;;
+12;Setyarti Agung Puro;19/11/2023; IDR 150,000 ;;;;;;
+13;Mbh Modin Marwiah Puro;14/12/2023; IDR 100,000 ;;;;;;
+14;Iyud Puro;03/09/2024; IDR 100,000 ;;;;;;
+15;Ita Mami Puro;18/03/2024; IDR 100,000 ;;;;;;
+16;Fitri Puro;04/04/2024; IDR 100,000 ;;;;;;
+17;Mutik Puro;04/04/2024; IDR 100,000 ;;;;;;
+18;Ibu Eko Purwaningsih Puro;04/04/2024; IDR 100,000 ;;;;;;
+19;Bp E Kabul;07/04/2024; IDR 100,000 ;;;;;;
+20;Ibu Marmi Puro;24/07/2024; IDR 100,000 ;;;;;;
+21;Tomi Isdiyati Puro;27/07/2024; IDR 150,000 ;;;;;;
+22;Ninik Puro;08/02/2024; IDR 100,000 ;;;;;;
+23;Arni Puro;24/12/2024; IDR 100,000 ;;;;;;
+24;Yunus Puro;01/10/2025; IDR 100,000 ;;;;;;
+25;Ibu Lami Puro ;01/10/2025; IDR 100,000 ;;;;;;
+26;Heni Puro;04/09/2025; IDR 100,000 ;;;;;;
+27;Sri Mulyati Puro;04/07/2025; IDR 100,000 ;;;;;;
+28;;;;;;;;;
+;;;;;;;;;
+;GANDIL;;;TF;CSH;R;BL;;
+1;Anik Gandil;29/04/2023; IDR 100,000 ;;;;;;
+2;Puput Gandil;07/01/2024; IDR 100,000 ;;;;;;
+3;Viona Gandil;14/04/2025; IDR 150,000 ;;;;;;
+4;Sumarno Gandil;25/04/2025; IDR 150,000 ;;;;;;
+5;Parti April Gandil;25/04/2025; IDR 150,000 ;;;;;;
+6;Warsito Gandil;28/04/2025; IDR 100,000 ;;;;;;
+7;Rohmadi Gandil;28/04/2025; IDR 100,000 ;;;;;;
+8;Bp Waluyo Gandil;04/12/2021; IDR 100,000 ;;;;;;
+9;Wartri Momo Gandil;05/10/2025; IDR 100,000 ;;;;;;
+10;Adib Gandil;15/05/2025; IDR 100,000 ;;;;;;
+;SEPREH;;;TF;CSH;R;BL;;
+1;Mas Supri Sepreh;10/02/2021; IDR 100,000 ;;;;;;
+2;Didik Sepreh;11/10/2021; IDR 100,000 ;;;;;;
+3;Nisa Lek Supri;18/11/2021; IDR 100,000 ;;;;;;
+4;Nanang;12/10/2021; IDR 100,000 ;;;;;;
+5;Lek Sukir;12/11/2021; IDR 100,000 ;;;;;;
+6;Intan Sepreh;18/12/2021; IDR 100,000 ;;;;;;
+7;Wiji Tya;09/04/2023; IDR 100,000 ;;;;;bayar 5/10/2025;
+8;Lek Ngaliman;29/12/2021; IDR 100,000 ;;;;;;
+9;Mbak Bidari sepreh;17/12/2020; IDR 100,000 ;;;;;;
+10;ibu Wiji Sepreh;18/12/2020; IDR 100,000 ;;;;;;
+11;Mas Joko Sepreh;18/12/2020; IDR 100,000 ;;;;;;
+12;Mas Narto Sepreh;25/12/2020; IDR 150,000 ;;;;;;
+13;Lek Dardi Sepreh;01/02/2021; IDR 100,000 ;;;;;;
+14;Bp Woko Sepreh;01/12/2021; IDR 100,000 ;;;;;;
+15;Mas Joko Etan;22/01/2021; IDR 100,000 ;;;;;;
+16;Lek Jumbadi Sepreh;23/01/2021; IDR 100,000 ;;;;;;
+17;Purwanto Sepreh;26/02/2022; IDR 100,000 ;;;;;;
+18;Darmanto Sepreh;15/03/2023; IDR 100,000 ;;;;;;
+19;Sukadi kadek Sepreh;23/03/2023; IDR 100,000 ;;;;;;
+20;Eni Sepreh;04/07/2023; IDR 100,000 ;;;;;;
+21;Mega Sepreh;04/07/2023; IDR 100,000 ;;;;;;
+22;Retno Sepreh;04/07/2023; IDR 100,000 ;;;;;;
+23;Selsa Sepreh;01/02/2022; IDR 100,000 ;;;;;;
+24;Triono (wulan) Sepreh;27/03/2023; IDR 100,000 ;;;;;;
+25;Lek Waji Sepreh;04/11/2023; IDR 100,000 ;;;;;;
+26;Fandik Sepreh;05/07/2023; IDR 100,000 ;;;;;;
+27;Pak e yogi sepreh;20/05/2023; IDR 100,000 ;;;;;;
+28;San Rohani Sepreh;17/06/2023; IDR 100,000 ;;;;;;
+29;Mbk Atun Woro;09/06/2023; IDR 100,000 ;;;;;;
+30;Rini Sepreh;20/09/2023; IDR 100,000 ;;;;;;
+31;Wintut  Sepreh;26/09/2023; IDR 100,000 ;;;;;;
+32;Tarwi Sepreh;23/10/2023; IDR 100,000 ;;;;;;
+33;Dafa Bu Slamet Sepreh;23/10/2023; IDR 100,000 ;;;;;;
+34;Kasi Noting Sepreh;24/10/2023; IDR 100,000 ;;;;;;
+35;Irik Sepreh;11/05/2023; IDR 100,000 ;;;;;;
+36;Dewi Sepreh;23/11/2023; IDR 100,000 ;;;;;;
+37;Suryani Sepreh;12/01/2023; IDR 100,000 ;;;;;;
+38;Rina Sepreh;31/12/2023; IDR 100,000 ;;;;;;
+39;ibu Nani Sepreh;25/01/2024; IDR 100,000 ;;;;;;
+40;Sriyanto Patok Sepreh;15/04/2024; IDR 100,000 ;;;;;;
+41;Dilah Narni Sepreh;20/04/2024; IDR 100,000 ;;;;;;
+42;Bambang Sepreh;04/12/2023; IDR 100,000 ;;;;;;
+43;Karti Sepreh;23/07/2024; IDR 100,000 ;;;;;;
+44;Prapto Sepreh;31/101/2024; IDR 100,000 ;;;;;;
+45;Browen Sepreh;19/01/2025; IDR 100,000 ;;;;;;
+46;Alek Sepreh;13/03/2025; IDR 100,000 ;;;;;;
+;DERAK;;;TF;CSH;R;BL;;
+1;Bp Teguh Derak;17/07/2022; IDR 100,000 ;;;;;;
+2;Pak Sadi Derak;12/10/2020; IDR 100,000 ;;;;;;
+3;Kamti Derak;08/01/2024; IDR 100,000 ;;;;;;
+4;Surono Derak;08/01/2024; IDR 100,000 ;;;;;;
+5;Askia Derak;08/02/2024; IDR 100,000 ;;;;;;
+6;Yanti Derak;08/04/2024; IDR 50,000 ;;;;;;
+7;Suwandi Derak;08/04/2024; IDR 100,000 ;;;;;;
+8;Nisa Derak;08/04/2024; IDR 100,000 ;v;;;;;
+9;Topik Derak;08/04/2024; IDR 100,000 ;;;;;;
+10;Agung Ari Derak;08/09/2024; IDR 100,000 ;;;;;;
+11;Ana Julia Derak;27/10/2024; IDR 150,000 ;v;;;;;
+12;Lestari Derak;12/09/2024; IDR 100,000 ;;;;;;
+;TEWEL;;;TF;CSH;R;BL;;
+1;Mbak Retno Tewel;28/11/2020; IDR 100,000 ;;;;;;
+2;Joni kurniawan Tewel;29/11/2020; IDR 150,000 ;;;;;;
+3;Ibu Danik Tewel;11/06/2023; IDR 100,000 ;;;;;;
+4;Ibu Yanti Tewel;11/06/2023; IDR 100,000 ;;;;;;
+5;Nono Tewel;11/06/2023; IDR 100,000 ;;;;;;
+6;Ali Mochtar Tewel;10/06/2024; IDR 100,000 ;;;;;;
+7;Rita Tewel;14/01/2025; IDR 100,000 ;;;;;;Purworejo
+;BORO;;;TF;CSH;R;BL;;
+1;Lilis Boro;12/03/2020; IDR 100,000 ;;;;;;
+2;zamzam Boro;22/01/2022; IDR 100,000 ;;;;;;
+3;Frestina Boro;14/12/2020; IDR 100,000 ;;;;;;
+4;Mas Ari Boro;01/07/2022; IDR 100,000 ;;;;;;
+5;Ibu Tanti Boro;30/11/2020; IDR 150,000 ;;;;;;
+6;SD Puro 4;10/10/2021; IDR 150,000 ;;;;;;
+7;Mas Wandi Boro;25/11/2020; IDR 100,000 ;;;;;;
+8;Mas Eko Boro;24/12/2020; IDR 100,000 ;;;;;;
+9;Bpk Yudono;01/02/2021; IDR 100,000 ;;;;;;
+10;Mas Hariyono Boro;24/04/2021; IDR 100,000 ;;;;;;
+11;Mas Supri Boro;05/08/2022; IDR 100,000 ;;;;;;
+12;Lek Prih Boro;24/05/2021; IDR 100,000 ;;;;;;
+13;sidiq Boro;19/08/2021; IDR 100,000 ;;;;;;
+14;Bp Sukarman Boro;08/11/2022; IDR 100,000 ;;;;;;
+15;Mas Supar Boro;11/10/2022; IDR 100,000 ;;;;;;
+16;Mas Nur Boro;26/01/2023; IDR 100,000 ;;;;;;
+17;Yusuf Boro;23/02/2023; IDR 100,000 ;;;;;;
+18;Dika Nanem;29/03/2023; IDR 100,000 ;;;;;;
+19;Arum Boro;13/05/2023; IDR 100,000 ;;;;;;
+20;Ipah Sulimah Boro;06/12/2023; IDR 100,000 ;;;;;;
+21;Idris Boro;07/01/2023; IDR 150,000 ;;;;;;
+22;Jalal Sur Boro;10/11/2023; IDR 100,000 ;;;;;;
+23;Sri Yanto Boro;27/11/2023; IDR 100,000 ;;;;;;
+24;Angga Dirga;11/3/2/2024; IDR 100,000 ;;;;;;
+25;Nanik Tri Boro;29/03/2024; IDR 100,000 ;;;;;;
+26;Andri Boro;07/07/2024; IDR 100,000 ;;;;;;
+27;Didik Boro;09/04/2024; IDR 100,000 ;;;;;;
+30;Nurul Boro;24/10/2024; IDR 100,000 ;;;;;;
+31;Dafa Kinem Boro;01/01/2025; IDR 100,000 ;;;;;;
+32;Ulya Boro;18/02/2025; IDR 100,000 ;;;;;;
+33;Tulung boro;04/03/2025; IDR 100,000 ;;;;;;
+34;Sigit Boro;05/12/2025; IDR 100,000 ;;;;;;
+;KARAS /BOLO;;;TF;CSH;R;BL;;
+1;Retno Karas;26/11/2022; IDR 100,000 ;;;;;;
+2;Ustadz Syarif Bolo;13/11/2022; IDR 100,000 ;;;;;;
+3;Shafira Karas;12/11/2022; IDR 100,000 ;;;;;;
+4;Joko Rosi Karas;21/10/2023; IDR 100,000 ;;;;;;
+5;Amin Karas;14/01/2024; IDR 100,000 ;;;;;;
+6;Timbul karas;23/01/2024; IDR 100,000 ;;;;;;
+7;Mas Supri Karas;25/12/2024; IDR 100,000 ;;;;;;
+8;Sri Kasniyati Karas;19/01/2025; IDR 100,000 ;;;;;;
+9;Toko Karas;22/01/2025; IDR 100,000 ;;;;;;
+10;Djam Karas;02/10/2025; IDR 100,000 ;;;;;;
+11;Ibu Ika Karas;30/03/2025; IDR 100,000 ;;;;;;
+12;Bp Suwarno Karas;30/03/2025; IDR 100,000 ;;;;;;
+13;Ibu Sri Hastuti Karas;30/03/2025; IDR 100,000 ;;;;;;
+14;Hartono Karas;30/03/2025; IDR 100,000 ;;;;;;
+;BENDUNGAN;;;TF;CSH;R;BL;;
+1;Antok GFC;24/12/2020; IDR 100,000 ;v;;;;;
+2;Sadi Bendungan;28/08/2020; IDR 100,000 ;v;;;;;
+3;Ipeh Bendungan;; IDR 100,000 ;;;;;;
+4;Parlan bendungan;02/10/2022; IDR 100,000 ;;;;;;
+5;Bp Paidi Bendungan;19/03/2021; IDR 100,000 ;;;;;;
+6;Abdul Aziz Bendungan;21/08/2021; IDR 100,000 ;;;;;;
+7;Bp Samiyo Bendungan;16/12/2021; IDR 100,000 ;;;;;;
+8;Pak Rebo Bndungan;16/08/2021; IDR 100,000 ;v;;;;;
+9;Pak Wagiman Bendungan;20/12/2020; IDR 100,000 ;;;;;;
+10;Pak Modin;22/12/2020; IDR 100,000 ;;;;;;
+11;Vitamanda Pak RT;22/12/2020; IDR 100,000 ;v;;;;;
+12;Aulia Bendungan;24/08/2021; IDR 100,000 ;v;;;;;
+13;Sinta Bendungan;03/09/2023; IDR 100,000 ;;;;;;
+;PURWOSARI;;;TF;CSH;R;BL;;
+1;Bp Topo Purwosari;03/05/2022; IDR 100,000 ;;;;;;
+2;Bp Romli Purwosari;03/08/2022; IDR 100,000 ;;;;;;
+3;Mas Joko Purwosari;31/07/2021; IDR 100,000 ;;;;;;
+4;Mas Slamet Purwosari;24/02/2021; IDR 100,000 ;;;;;;
+;;;;;;;;;
+;BANGUN ASRI;;;TF;CSH;R;BL;;
+1;Ardi Bangun Asri;19/06/2022; IDR 100,000 ;;;;;;
+2;Heri Bangun Asri;14/08/2022; IDR 100,000 ;;;;;;
+3;Wawan Bangun Asri;07/04/2023; IDR 100,000 ;;;;;;
+4;Rosi Bangun Asri;14/11/2023; IDR 100,000 ;;;;;;
+5;Mbk Sari Bangun Asri;18/01/2024; IDR 150,000 ;;;;;;
+6;Widodo  Bangun Asri;18/01/2024; IDR 100,000 ;;;;;;
+7;Fuad Pak Pur Bangun Asri;06/07/2024; IDR 100,000 ;;;;;;
+8;Fredi Bangun Asri;18/03/2024; IDR 100,000 ;;;;;;
+9;Dwi Bangun Asri;09/10/2024; IDR 100,000 ;;;;;;Wawan
+10;Ibu Siti RT Bangun Asri;20/01/2025; IDR 100,000 ;;;;;;
+11;Yanti Bambang Bangun Asri;20/05/2025; IDR 50,000 ;;;;;;Tumpang
+;GRIYA ANUGRAH;;;TF;CSH;R;BL;;
+1;Mujiyanto Griya Anugrah;04/05/2022; IDR 150,000 ;;;;;;
+2;Ibu Titik Griya Anugrah;05/01/2021; IDR 150,000 ;;;;;;
+3;Mb Mety Griya Anugrah;09/01/2022; IDR 150,000 ;;;;;;
+4;RBG Cell;25/02/2023; IDR 150,000 ;;;;;;
+5;Salon Azka;14/03/2023; IDR 150,000 ;;;;;;
+6;Tanti Griya Anugrah;06/09/2023; IDR 150,000 ;;;;;;
+;JIMBAR;;;TF;CSH;R;BL;;
+1;Ibu Mini ;31/01/2021; IDR 100,000 ;;;;;;
+2;SD N Guworejo 2;12/04/2020; IDR 150,000 ;;;;;;
+3;ibu Muji Jimbar;21/02/2023; IDR 150,000 ;;;;;;
+4;Andri Jimbar;06/06/2023; IDR 150,000 ;;;;;;
+5;Ustadz Samijo Jimbar;21/11/2024; IDR 100,000 ;;;;;;
+6;Ibu Purwanti Jimbar;23/03/2025; IDR 100,000 ;v;;;;;
+;SONO;;;TF;CSH;R;BL;;
+1;Mbk Arum Sono;29/01/2021; IDR 100,000 ;;;;;;
+2;Danang  Sono;04/04/2021; IDR 100,000 ;;;;;;
+3;Sri Rejeki Sono;30/01/2023; IDR 100,000 ;;;;;;
+4;Saputra Sono;15/03/2024; IDR 100,000 ;;;;;;
+5;Fitri Sono;13/04/2025; IDR 100,000 ;V;;;;;
+;JAGAN;;;TF;CSH;R;BL;;
+1;Sri Herman  Jagan;05/09/2024; IDR 150,000 ;;;;;;
+2;Supadmi Jagan RT 19;05/09/2024; IDR 100,000 ;;;;;;
+3;Erni Jagan;21/10/2024; IDR 150,000 ;;;;;;
+4;Salon Jagan;21/01/2025; IDR 100,000 ;;;;;;
+5;Agista Jagan;17/01/2025; IDR 100,000 ;;;;;;
+6;Arum Jagan;05/07/2022; IDR 150,000 ;;;;;;
+7;Titip Handayani Jagan;03/01/2025; IDR 100,000 ;;;;;;
+8;Totok Santoso Jagan;03/01/2025; IDR 100,000 ;;;;;;
+9;Ebin Jagan;03/01/2025; IDR 100,000 ;;;;;;
+10;Gatot Widodo Jagan;03/11/2025; IDR 100,000 ;;;;;;
+11;Aryo Kusuma Jagan;30/03/2025; IDR 100,000 ;;;;;;
+12;Bp Bambang Jagan;27/03/2025; IDR 100,000 ;;;;;;
+13;rodali Imam Jagan;05/04/2025; IDR 100,000 ;;;;;;
+14;Nestria Perum Jagan;05/06/2025; IDR 100,000 ;;;;;;
+;KATUKAN;;;TF;CSH;R;BL;;
+1;Mansur Katukan;16/03/2025; IDR 100,000 ;;;;;;
+2;Mbk wulan Katukan;16/03/2025; IDR 100,000 ;;;;;;
+3;Bu Ana Katukan;16/03/2025; IDR 100,000 ;;;;;;
+4;Bp Budi Katukan;11/03/2023; IDR 150,000 ;;;;;;
+5;Bp Budi Yulianto Katukan;17/03/2025; IDR 100,000 ;;;;;;
+6;Ibu Sumini Pamungkas Katukan;17/03/2025; IDR 100,000 ;;;;;;
+;TIMUR;;;TF;CSH;R;BL;;
+1;Mbh Joyo  Timur;28/11/2023; IDR 100,000 ;;;;;;G 6
+2;Umar Timur;30/11/2023; IDR 100,000 ;;;;;;G 6
+3;Wahyu Timur;06/09/2024; IDR 100,000 ;;;;;;G 6
+4;Adel Timur;04/06/2024; IDR 100,000 ;;;;;;G 6
+5;Kabul Timur;26/12/2022; IDR 100,000 ;;;;;;G 6
+6;Andri timur;22/05/2025; IDR 50,000 ;;;;;;G 6
+;PURO ASRI 1 DAN 2;;;TF;CSH;R;BL;;
+1;Sandy Puro Asri;11/08/2023; IDR 100,000 ;;;;;;2
+2;Ibu Nailul Puro Asri;21/07/2024; IDR 110,000 ;;;;;;2
+3;Andika Puro Asri;10/05/2023; IDR 150,000 ;;;;;;2
+4;Puspita Puro Asri;11/09/2024; IDR 150,000 ;;;;;;1
+5;Tatik Anang Puro Asri;02/11/2025; IDR 150,000 ;;;;;;1
+6;Mas Agung Puro Asri;22/03/2025; IDR 100,000 ;;;;;;1
+7;Ibu Hesti Puro Asri;23/03/2025; IDR 100,000 ;;;;;;1
+8;Bp Wasis Puro Asri;26/03/2025; IDR 100,000 ;;;;;;1
+;SUKOREJO;;;TF;CSH;R;BL;;
+1;Dwi Sukorejo;17/03/2025; IDR 100,000 ;;;;;;Landak
+2;Tri Sukorejo;16/04/2025; IDR 100,000 ;;;;;;Jahit
+3;Dewi Sukorejo;17/05/2025; IDR 100,000 ;;;;;;
+;PATIGONDO;;;TF;CSH;R;BL;;
+1;Pak Lilik Patigondo;01/04/2023; IDR 100,000 ;;;;;;
+2;Ibu Atun Patigondo;10/10/2023; IDR 100,000 ;;;;;;
+3;Nailal Nano Patigondo;25/12/2024; IDR 100,000 ;;;;;;
+4;Anto Patigondo;15/05/2025; IDR 100,000 ;;;;;;
+5;Akbar Patigondo;18/04/2025; IDR 100,000 ;;;;;;
+;KIDUL OMAH;;;TF;CSH;R;BL;;
+1;Rajid Kidul Omah;15/07/2023; IDR 100,000 ;;;;;;
+2;Gogon Kidul Omah;08/01/2023; IDR 100,000 ;;;;;;
+3;Choirul Kidul Omah;10/04/2023; IDR 100,000 ;;;;;;
+4;Opan Kidul Omah;30/07/2024; IDR 150,000 ;;;;;;
+5;Bunga Kidul Omah;01/02/2025; IDR 100,000 ;;;;;;
+;CAMPURAN;;;TF;CSH;R;BL;;
+1;SD BENDUNGAN 1;03/10/2021; IDR 150,000 ;;;;;;
+2;Suprapti Wonokerso;02/01/2022; IDR 200,000 ;;;;;;
+3;Mila Talang;26/11/2021; IDR 150,000 ;;;;;;
+4;Nurwanto Talang;23/12/2024; IDR 100,000 ;;;;;;
+5;UD Arfis Rejeki Karangmalang;24/08/2021; IDR 150,000 ;;;;;;
+6;Bakso Henri Karangmalang;03/09/2023; IDR 150,000 ;;;;;;
+7;Tes karangmalang;29/11/2022; IDR 100,000 ;;;;;;
+8;Abdul Rohim Sungkul;06/08/2023; IDR 100,000 ;;;;;;
+9;Betik Brambang;15/01/2021; IDR 100,000 ;;;;;;
+10;Novi Brambang;20/10/2023; IDR 100,000 ;;;;;;
+11;Galih Perum Cendana;10/05/2023; IDR 100,000 ;;;;;;2
+12;Nanda Cendana;15/05/2025; IDR 100,000 ;;;;;;2
+13;Alfino Asem Kunting;15/12/2023; IDR 120,000 ;;;;;;
+14;Sujiyati Asem Kunting;15/01/2024; IDR 100,000 ;;;;;;
+15;Gimin Asem Kunting;01/05/2024; IDR 100,000 ;;;;;;
+16;Bp Sular Timur G 1;02/10/2024; IDR 150,000 ;;;;;;
+17;Yanti Margorejo;18/11/2023; IDR 150,000 ;;;;;;
+18;Ustadz Khozin Margorejo;30/10/2023; IDR 100,000 ;;;;;;
+19;Wahyu Margorejo;25/03/2024; IDR 150,000 ;;;;;;
+21;Gento Margorejo;28/06/2024; IDR 150,000 ;;;;;;
+22;Indra margorejo;29/10/2024; IDR 200,000 ;;;;;;
+23;Deo Margorejo;01/12/2025; IDR 150,000 ;;;;;;
+24;Gudang Indra Sentonorejo;23/11/2024; IDR 100,000 ;;;;;;
+25;Dedi Doeng cuo;22/06/2024; IDR 150,000 ;;;;;;
+26;Amin Sumbirejo;25/08/2024; IDR 100,000 ;;;;;;
+27;Jekrik Sumbirejo;25/08/2024; IDR 100,000 ;;;;;;
+28;Fajar Sumbirejo;25/08/2024; IDR 100,000 ;;;;;;
+29;Potong Rambut Pantes Karangmalang;09/05/2024; IDR 100,000 ;;;;;;
+30;Sido Sungkul;18/05/2025; IDR 100,000 ;;;;;;
+31;Dani Sungkul;17/09/2023; IDR 150,000 ;;;;;;
+32;Taman Harmoni Karangmalang;22/12/2024; IDR 100,000 ;;;;;;
+33;Senita Dony Brengosan;25/12/2024; IDR 100,000 ;;;;;;
+34;Warsito Brengosan;27/12/2024; IDR 100,000 ;;;;;;
+35;sugimin Brengosan;03/06/2025; IDR 100,000 ;;;;;;
+36;Bpk Joko Amin Pilangsari;01/01/2021; IDR 100,000 ;;;;;;
+37;Pradhitya Karangmalang;13/01/2025; IDR 150,000 ;;;;;;
+38;Arum Cendana;02/10/2025; IDR 100,000 ;;;;;;
+39;Srida Yartin;03/05/2025; IDR 100,000 ;;;;;;
+40;Lukman Intan Yartin;03/05/2025; IDR 100,000 ;;;;;;
+41;Joker Yetno Yartin;21/05/2025; IDR 50,000 ;;;;;;
+42;Ibu Sri lestari Ngablak;03/09/2025; IDR 100,000 ;;;;;;
+43;Ibu Sri mulyani Ngablak;03/09/2025; IDR 100,000 ;;;;;;
+44;Riski Ngablak;11/3/025; IDR 100,000 ;;;;;;
+45;Rafi Karangmalang;16/03/2025; IDR 100,000 ;;;;;;
+46;Denita Banyon;22/04/2025; IDR 100,000 ;;;;;;
+47;Andi Banyon;22/04/2025; IDR 100,000 ;;;;;;
+48;Mbk Rina Candi Kidul;20/10/2022; IDR 150,000 ;;;;;;
+49;Tanti Candi Asri;07/02/2023; IDR 100,000 ;;;;;;
+50;Joko Candi Asri;06/04/2023; IDR 150,000 ;;;;;;

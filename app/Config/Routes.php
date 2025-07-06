@@ -22,6 +22,8 @@ $routes->post('/pelanggan/add', 'Pelanggan::add');
 $routes->post('/pelanggan/update', 'Pelanggan::update');
 $routes->post('/pelanggan/tagihan', 'Pelanggan::tagihan');
 $routes->post('/pelanggan/lunas', 'Pelanggan::lunas');
+$routes->post('/pelanggan/alamat', 'Pelanggan::alamat');
+$routes->post('/pelanggan/pelanggan_by_alamat', 'Pelanggan::pelanggan_by_alamat');
 
 $routes->get('/tagihan', 'Tagihan::index');
 $routes->get('/laporan/(:any)/(:num)', 'Laporan::index/$1/$2');
