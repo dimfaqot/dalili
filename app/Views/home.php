@@ -545,17 +545,17 @@ $q = $db->where('id', $id)->get()->getRowArray();
     let list_tunggakan = (order) => {
 
         let html = '';
-        html += `<table class="table table-sm table-striped table-bordered">
+        html += `<table class="table table-sm table-striped table-bordered" style="font-size:11px">
                     <thead>
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Jml</th>
-                        <th scope="col">Uang</th>`;
+                        <th class="text-center">#</th>
+                        <th class="text-center">Alamat</th>
+                        <th class="text-center">Jml</th>
+                        <th class="text-center">Uang</th>`;
         if (order == "lunas") {
-            html += `<th scope="col">Cs</th>
-                    <th scope="col">Tf</th>
-                    <th scope="col">Tk</th>`;
+            html += `<th class="text-center">Cs</th>
+                    <th class="text-center">Tf</th>
+                    <th class="text-center">Tk</th>`;
 
         }
         html += `</tr>
