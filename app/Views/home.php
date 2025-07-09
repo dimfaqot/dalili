@@ -1,12 +1,6 @@
 <?php
-// dd(password_hash('123456', PASSWORD_DEFAULT));
-$total = 0;
-$total_tagihan = 0;
-foreach ($data as $i) {
-    $total += $i['total'];
-    $total_tagihan += ($i['total'] * $i['identitas']['harga']);
-}
 
+// dd(password_hash('123456', PASSWORD_DEFAULT));
 $id = (session('id') ? session('id') : 1);
 $db = db('admin');
 $q = $db->where('id', $id)->get()->getRowArray();
@@ -14,37 +8,7 @@ $q = $db->where('id', $id)->get()->getRowArray();
 <?= $this->extend('templates/logged') ?>
 
 <?= $this->section('content') ?>
-
-<div class="d-flex justify-content-center gap-2 my-3">
-    <a href="<?= base_url('pelanggan'); ?>" class="card text-bg-primary border border-primary" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
-        <div class="card-body text-center">
-            <h2 class="card-title"><?= angka(count($pelanggan)); ?></h2>
-            <p class="card-text">Total Pelanggan</p>
-        </div>
-    </a>
-    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#detail_belum_bayar" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
-        <div class="card-body text-center">
-            <h2 class="card-title"><?= angka($total); ?></h2>
-            <p class="card-text">Belum Bayar</p>
-        </div>
-    </a>
-
-</div>
-<div class="d-flex justify-content-center gap-2">
-    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#settings" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
-        <div class="card-body text-center">
-            <h2 class="card-title"><i class="fa-solid fa-gear"></i></h2>
-            <p class="card-text">Settings</p>
-        </div>
-    </a>
-    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#laporan" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
-        <div class="card-body text-center">
-            <h2 class="card-title"><i class="fa-solid fa-file-lines"></i></h2>
-            <p class="card-text">Laporan Bulanan</p>
-        </div>
-    </a>
-
-</div>
+<div class="content"></div>
 
 <!-- modal detail -->
 <div class="modal fade" id="detail_belum_bayar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,47 +19,8 @@ $q = $db->where('id', $id)->get()->getRowArray();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>TOTAL: <?= angka($total_tagihan); ?></h6>
+                <div class="body_belum_bayar"></div>
 
-                <input type="text" class="form-control cari_tagihan mb-3" placeholder="Cari">
-                <?php foreach ($data as $k => $i): ?>
-                    <div class="accordion accordion-flush target_search" data-target="<?= $i['identitas']['nama']; ?>" id="accordion<?= $i['identitas']['id']; ?>">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush<?= $i['identitas']['id']; ?>">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<?= $i['identitas']['id']; ?>" aria-expanded="false" aria-controls="flush-collapseOne<?= $i['identitas']['id']; ?>">
-                                    <?= $i['identitas']['nama']; ?>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne<?= $i['identitas']['id']; ?>" class="accordion-collapse collapse" aria-labelledby="flush<?= $i['identitas']['id']; ?>" data-bs-parent="#accordion<?= $i['identitas']['id']; ?>">
-                                <div class="d-grid my-3">
-                                    <button class="btn btn-primary btn_whatsapp" data-i="<?= $k; ?>"><i class="fa-brands fa-whatsapp"></i></a> Kirim Tagihan | <?= angka($i['identitas']['harga'] * $i['total']); ?></button>
-                                </div>
-                                <table class="table table-sm table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">#</th>
-                                            <th class="text-center">Periode</th>
-                                            <th class="text-center">Biaya</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($i['data'] as $k => $d): ?>
-                                            <?php if ($d['ket'] == "H"): ?>
-                                                <tr>
-                                                    <td class="text-center"><?= ($k + 1); ?></td>
-                                                    <td><?= $d['periode']; ?></td>
-                                                    <td class="text-end"><?= angka($i['identitas']['harga']); ?></td>
-                                                </tr>
-
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php endforeach; ?>
             </div>
         </div>
     </div>
@@ -181,8 +106,65 @@ $q = $db->where('id', $id)->get()->getRowArray();
 
 
 <script>
-    let data = <?= json_encode($data); ?>;
+    let data = [];
 
+    let content = () => {
+        post("home/rangkuman", {
+            id: 0
+        }).then(res => {
+            data = res.data.data;
+            let html = '';
+
+            html += `<div class="d-flex justify-content-center gap-2 my-3">
+    <a href="<?= base_url('pelanggan'); ?>" class="card text-bg-primary border border-primary" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h2 class="card-title">${angka(res.data.pelanggan.length)}</h2>
+            <p class="card-text">Pelanggan</p>
+        </div>
+    </a>
+    <a href="" class="card text-bg-primary border border-primary btn_belum_bayar" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h2 class="card-title">${angka(res.data.total_tagihan)}</h2>
+            <p class="card-text">Tagihan</p>
+        </div>
+    </a>
+
+</div>
+<div class="d-flex justify-content-center gap-2 mb-3">
+    <a href="" class="card text-bg-primary border border-primary tunggakan" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h4 class="card-title">${angka(res.data.total_belum_bayar)}</h4>
+            <p class="card-text">Tunggakan</p>
+        </div>
+    </a>
+    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#laporan" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h2 class="card-title"><i class="fa-solid fa-file-lines"></i></h2>
+            <p class="card-text">Laporan Bulanan</p>
+        </div>
+    </a>
+
+</div>
+<div class="d-flex justify-content-center gap-2">
+    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#settings" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h2 class="card-title"><i class="fa-solid fa-gear"></i></h2>
+            <p class="card-text">Settings</p>
+        </div>
+    </a>
+    <a href="" class="card text-bg-primary border border-primary" data-bs-toggle="modal" data-bs-target="#laporan" style="--bs-border-opacity: 0.5;min-width: 10rem;text-decoration:none">
+        <div class="card-body text-center">
+            <h2 class="card-title"><i class="fa-solid fa-file-lines"></i></h2>
+            <p class="card-text">Laporan Bulanan</p>
+        </div>
+    </a>
+
+</div>`;
+            $(".content").html(html);
+        })
+    }
+
+    content();
 
     $(document).on('keyup', '.cari_tagihan', function(e) {
         e.preventDefault();
@@ -246,6 +228,144 @@ $q = $db->where('id', $id)->get()->getRowArray();
         // let url = "https://api.whatsapp.com/send/?phone=" + no_hp + "&text=" + text;
         let url = "<?= base_url('laporan'); ?>/" + $(".bulan").val() + '/' + $(".tahun").val();
         window.open(url, "_blank");
+
+
+    });
+
+    let data_belum_bayar = (alamat) => {
+        let html = `<div class="mb-3">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" class="form-control add_alamat on_modal" data-order="add" value="${alamat}" placeholder="Alamat" required readonly>
+                    </div>
+                    <h6 class="total_belum_bayar"></h6>
+  <input type="text" class="form-control form-control-sm cari_tagihan mb-3" placeholder="Cari">`;
+
+        let total = 0;
+        data.forEach((e, i) => {
+            if (e.identitas.alamat == alamat) {
+                total += (e.identitas.harga * e.total);
+                html += `<div class="accordion accordion-flush target_search" data-target="${e.identitas.nama}" id="accordion${e.identitas.id}">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush${e.identitas.id}">
+                            <button class="accordion-button collapsed ${(e.total==0?"bg-secondary opacity-50":"")}" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${e.identitas.id}" aria-expanded="false" aria-controls="flush-collapseOne${e.identitas.id}">
+                                ${e.identitas.nama}
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne${e.identitas.id}" class="accordion-collapse collapse" aria-labelledby="flush${e.identitas.id}" data-bs-parent="#accordion${e.identitas.id}">
+                            <div class="d-grid my-3">
+                                <button class="btn btn-primary btn_whatsapp" data-i="${i}"><i class="fa-brands fa-whatsapp"></i></a> Kirim Tagihan | ${angka(e.identitas.harga * e.total)}</button>
+                            </div>
+                            <table class="table table-sm table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Periode</th>
+                                        <th class="text-center">Biaya</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
+                e.data.forEach((x, k) => {
+                    if (x['ket'] == "H") {
+                        html += `<tr>
+                                                <td class="text-center">${k+1}</td>
+                                                <td>${x.periode}</td>
+                                                <td class="text-end">${angka(e.identitas.harga)}</td>
+                                            </tr>`;
+                    }
+
+                })
+
+                html += `</tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+        })
+        let res = {
+            total,
+            html
+        };
+        return res;
+    }
+    $(document).on('click', '.btn_belum_bayar', function(e) {
+        e.preventDefault();
+        let alamat = "<?= options('alamat')[0]; ?>";
+
+        let res = data_belum_bayar(alamat);
+        $(".body_belum_bayar").html(res.html);
+
+
+        let myModal = document.getElementById("detail_belum_bayar");
+        let modal = bootstrap.Modal.getOrCreateInstance(myModal);
+
+        modal.show();
+
+        $(".total_belum_bayar").text("Total: " + angka(res.total));
+
+    });
+
+    $(document).on('click', '.on_modal', function(e) {
+        e.preventDefault();
+        let order = $(this).data("order");
+        let html = "";
+        html += `<div class="modal-body text-center">
+                    <div class="my-2 bg-info p-2 rounded" style="position: relative;">
+                        <span class="text_main" style="font-size: small;">Alamat</span>
+                        <input type="text" data-order="${order}" class="mb-2 form-control alamat_on_modal" placeholder="Cari alamat...">
+                        <div class="data_on_modal">
+                           
+                        </div>
+                    </div>
+                </div>`;
+
+        $(".body_on_modal").html(html);
+        mdlOnModal.show();
+    });
+
+    $(document).on('keyup', '.alamat_on_modal', function(e) {
+        e.preventDefault();
+        let val = $(this).val();
+        let order = $(this).data("order");
+
+        post("pelanggan/alamat", {
+            val
+        }).then(res => {
+            let html = `<div class="d-flex justify-content-center flex-column"><div>`;
+            if (res.data.length == 0) {
+                html += '<div>Data tidak ditemukan!.</div>';
+            } else {
+                res.data.forEach((e, i) => {
+                    html += `<div class="py-1 select_on_modal" data-to_class="${order}_alamat" style="text-align: left;cursor:pointer;border-bottom:1px solid white">${e}</div>`;
+                })
+
+            }
+            html += `</div></div>`;
+            $(".data_on_modal").html(html);
+        })
+    });
+    $(document).on('click', '.select_on_modal', function(e) {
+        e.preventDefault();
+        let val = $(this).text();
+        let to_class = $(this).data("to_class");
+
+        $("." + to_class).val(val);
+
+        $(".data_on_modal").html("");
+        $(".body_on_modal").html("");
+        mdlOnModal.hide();
+
+        let res = data_belum_bayar(val);
+        $(".body_belum_bayar").html(res.html);
+
+
+        let myModal = document.getElementById("detail_belum_bayar");
+        let modal = bootstrap.Modal.getOrCreateInstance(myModal);
+
+        modal.show();
+
+        $(".total_belum_bayar").text("Total: " + angka(res.total));
 
     });
     $(document).on('click', '.update_profile', function(e) {
@@ -330,6 +450,169 @@ $q = $db->where('id', $id)->get()->getRowArray();
         }).then(res => {
             message(res.message);
         })
+
+    });
+
+    let tunggakan = {};
+    $(document).on('click', '.tunggakan', function(e) {
+        e.preventDefault();
+
+
+        let alamat = <?= json_encode(options('alamat')); ?>;
+        let lunas = [];
+        let tagihan = [];
+
+        alamat.forEach(e => {
+
+            let lunas_uang = 0;
+            let lunas_jml = 0;
+
+            let tagihan_uang = 0;
+            let tagihan_jml = 0;
+            let tf = 0;
+            let tk = 0;
+            let cs = 0;
+
+            data.forEach(d => {
+                if (d.identitas.alamat == e) {
+                    d.data.forEach(v => {
+                        if (v.ket == "L") {
+                            lunas_uang += parseInt(d.identitas.harga);
+                            lunas_jml++;
+                            if (v.metode == "Toko") {
+                                tk += parseInt(d.identitas.harga);
+                            } else if (v.metode == "Transfer") {
+                                tf += parseInt(d.identitas.harga);
+                            } else if (v.metode == "Cash") {
+                                cs += parseInt(d.identitas.harga);
+                            }
+                        } else {
+                            tagihan_uang += parseInt(d.identitas.harga);
+                            tagihan_jml++;
+                        }
+
+                    })
+                }
+            })
+
+            lunas.push({
+                jml: lunas_jml,
+                uang: lunas_uang,
+                alamat: e,
+                tf,
+                tk,
+                cs
+            });
+            tagihan.push({
+                jml: tagihan_jml,
+                uang: tagihan_uang,
+                alamat: e
+            });
+        })
+
+        tunggakan = {
+            lunas,
+            tagihan
+        }
+
+
+        let html = `<div class="modal-header">
+                    <h1 class="modal-title fs-5">Tunggakan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">`;
+        html += `<ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active menu_tunggakan" data-order="lunas" aria-current="page" href="#">Lunas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu_tunggakan" data-order="tagihan" aria-current="page" href="#">Tagihan</a>
+                </li>
+               
+                </ul>`;
+        html += `<div class="list_tunggakan">`;
+
+        html += list_tunggakan('lunas');
+
+        html += `</div></div>`;
+
+        $(".body_general").html(html);
+
+        mdlGeneral.show();
+
+    });
+
+    let list_tunggakan = (order) => {
+
+        let html = '';
+        html += `<table class="table table-sm table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Jml</th>
+                        <th scope="col">Uang</th>`;
+        if (order == "lunas") {
+            html += `<th scope="col">Cs</th>
+                    <th scope="col">Tf</th>
+                    <th scope="col">Tk</th>`;
+
+        }
+        html += `</tr>
+                    </thead>
+                    <tbody>`;
+        let jml = 0;
+        let uang = 0;
+        let cs = 0;
+        let tf = 0;
+        let tk = 0;
+        tunggakan[order].forEach((e, i) => {
+            jml += parseInt(e.jml);
+            uang += parseInt(e.uang);
+            if (order == "lunas") {
+                cs += parseInt(e.cs);
+                tf += parseInt(e.tf);
+                tk += parseInt(e.tk);
+            }
+            html += `<tr>
+                        <td>${(i+1)}</td>
+                        <td>${e.alamat}</td>
+                        <td class="text-end">${angka(e.jml)}</td>
+                        <td class="text-end">${angka(e.uang)}</td>`;
+
+            if (order == "lunas") {
+                html += `<td class="text-end">${angka(e.cs)}</td>
+                        <td class="text-end">${angka(e.tf)}</td>
+                        <td class="text-end">${angka(e.tk)}</td>`;
+            }
+            html += `</tr>`;
+        })
+
+        html += `<tr>
+                        <th class="text-center" colspan="2">TOTAL</th>
+                        <th class="text-end">${angka(jml)}</th>
+                        <th class="text-end">${angka(uang)}</th>`;
+        if (order == "lunas") {
+            html += `<th class="text-end">${angka(cs)}</th>
+                    <th class="text-end">${angka(tf)}</th>
+                    <th class="text-end">${angka(tk)}</th>`;
+
+        }
+        html += `</tr>`;
+
+
+        html += `</tbody>
+                </table>`;
+
+        return html;
+    }
+
+    $(document).on('click', '.menu_tunggakan', function(e) {
+        e.preventDefault();
+        let order = $(this).data("order");
+        $(".menu_tunggakan").removeClass("active");
+        $(this).addClass("active");
+        $(".list_tunggakan").html(list_tunggakan(order));
 
     });
 </script>

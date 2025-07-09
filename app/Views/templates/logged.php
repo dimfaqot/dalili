@@ -162,10 +162,22 @@
         </div>
     </div>
 
+    <!-- modal umum: tunggakan dll -->
+    <div class="modal fade" id="general" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content body_general">
+
+            </div>
+        </div>
+    </div>
+
     <div class="fixed-bottom pb-5 body_message" style="z-index: 999999;"></div>
     <script>
         let myModal = document.getElementById("update");
         let modal = bootstrap.Modal.getOrCreateInstance(myModal);
+
+        let myModalGen = document.getElementById("general");
+        let mdlGeneral = bootstrap.Modal.getOrCreateInstance(myModalGen);
 
         let myConfirm = document.getElementById("confirm");
         let mdlConfirm = bootstrap.Modal.getOrCreateInstance(myConfirm);

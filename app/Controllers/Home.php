@@ -6,11 +6,18 @@ class Home extends BaseController
 {
     public function index(): string
     {
+        return view('home', ['judul' => "Dashboard"]);
+    }
+    public function rangkuman()
+    {
         $db = db('pelanggan');
         $pelanggan = $db->orderBy('nama', 'ASC')->get()->getResultArray();
 
+        $data = rangkuman();
 
-        return view('home', ['judul' => "Dashboard", "pelanggan" => $pelanggan, 'data' => rangkuman()]);
+        $data['pelanggan'] = $pelanggan;
+
+        sukses_js('Ok', $data);
     }
     public function delete()
     {

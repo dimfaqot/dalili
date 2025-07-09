@@ -206,6 +206,7 @@ function settings($req = null)
 function rangkuman($alamat = null, $order = null)
 {
 
+    $start = settings('start');
     $db = db('pelanggan');
     $db;
     if ($alamat !== null) {
@@ -213,7 +214,6 @@ function rangkuman($alamat = null, $order = null)
     }
     $pelanggan = $db->orderBy('nama', 'ASC')->orderBy('ket', 'ASC')->get()->getResultArray();
 
-    $db = db('pembayaran');
 
     $users = [];
     foreach ($pelanggan as $i) {
@@ -221,17 +221,16 @@ function rangkuman($alamat = null, $order = null)
         // if ($i['status'] == 0 && $i['mulai_langganan'] == 0 && $order == null) {
         //     continue;
         // }
-        $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y"));
+        $tahun = range((int)date('Y', $start), (int)date("Y"));
 
         if ($i['status'] == 0) {
-            if ($i['mulai_langganan'] == 0) {
+            if ($start == 0) {
                 $tahun = [(int)date('Y')];
             } else {
-                $tahun = range((int)date('Y', $i['mulai_langganan']), (int)date("Y", $i['akhir_langganan']));
+                $tahun = range((int)date('Y', $start), (int)date("Y", $i['akhir_langganan']));
             }
         }
 
-        $i['nama'] = $i['nama'];
         if ($i['alamat'] !== "") {
             $i['nama'] .= " " . $i['alamat'];
         }
@@ -244,42 +243,53 @@ function rangkuman($alamat = null, $order = null)
 
     $data = [];
     $total_belum_bayar = 0;
+    $total_tagihan = 0;
+
 
     foreach ($users as $i) {
 
-        $q = $db->where('pelanggan_id', $i['id'])->orderBy('periode', 'ASC')->get()->getResultArray();
 
-        $lunas = [];
-        foreach ($q as $l) {
-            $lunas[] = date('n Y', $l['periode']);
-        }
+
 
         $total = 0;
         $temp = [];
         foreach ($i['tahun'] as $t) {
             for ($x = 1; $x < 13; $x++) {
-                if ($t == date('Y', $i['mulai_langganan']) && $x < (int)date('n', $i['mulai_langganan'])) {
+                if ($i['status'] == 0 && $t == date('Y') && $x > (int)date('n', $i['akhir_langganan'])) {
+                    continue;
+                } elseif ($t == date('Y', $start) && $x < (int)date('n', $start)) {
                     continue;
                 } elseif ($t == date('Y') && $x > (int)date('n')) {
                     continue;
-                } elseif ($i['status'] == 0 && $t == date('Y') && $x > (int)date('n', $i['akhir_langganan'])) {
-                    continue;
                 } else {
-                    if (in_array($x . " " . $t, $lunas)) {
-                        $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "L"];
+                    $db = \Config\Database::connect();
+                    $builder = $db->table('pembayaran');
+                    $builder->where('pelanggan_id', $i['id']);
+                    $builder->where('MONTH(FROM_UNIXTIME(tgl))', $x);
+                    $builder->where('YEAR(FROM_UNIXTIME(tgl))', $t);
+                    $q = $builder->get()->getRowArray();
+
+                    if ($q) {
+                        $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "L", 'metode' => $q['metode']];
                     } else {
-                        $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "H"];
-                        $total_belum_bayar++;
+                        $temp[] = ['periode' => bulan($x)['bulan'] . " " . $t, 'ket' => "H", 'metode' => 'Belum'];
                         $total++;
                     }
                 }
             }
         }
 
+        $total_tagihan += $total;
+        $total_belum_bayar += $total * $i['harga'];
+
         $data[] = ['identitas' => $i, 'total' => $total, 'data' => $temp];
     }
 
-    return $data;
+    $val['data'] = $data;
+    $val['total_belum_bayar'] = $total_belum_bayar;
+    $val['total_tagihan'] = $total_tagihan;
+
+    return $val;
 }
 
 

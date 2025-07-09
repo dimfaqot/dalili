@@ -9,9 +9,9 @@ class Pelanggan extends BaseController
     {
         $db = db('paket');
         $paket = $db->orderBy('paket', 'ASC')->get()->getResultArray();
+        $data = rangkuman(options('alamat')[0], 'full');
 
-
-        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => rangkuman(options('alamat')[0], 'full'), 'paket' => $paket]);
+        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => $data['data'], 'paket' => $paket]);
     }
 
     public function add()
@@ -119,6 +119,7 @@ class Pelanggan extends BaseController
 
     public function tagihan()
     {
+        $start = settings('start');
         $id = clear($this->request->getVar('id'));
         $tahun = (int)clear($this->request->getVar('tahun'));
 
@@ -137,10 +138,10 @@ class Pelanggan extends BaseController
         }
 
 
-        if ($pelanggan['status'] == 1 && (int)$tahun < (int)date("Y", $pelanggan['mulai_langganan'])) {
+        if ($pelanggan['status'] == 1 && (int)$tahun < (int)date("Y", $start)) {
             sukses_js("Data tidak ditemukan", [], $pelanggan);
         } elseif ($pelanggan['status'] == 0) {
-            if ((int)$tahun > (int)date("Y", $pelanggan['akhir_langganan']) || (int)$tahun < (int)date("Y", $pelanggan['mulai_langganan'])) {
+            if ((int)$tahun > (int)date("Y", $pelanggan['akhir_langganan']) || (int)$tahun < (int)date("Y", $start)) {
                 sukses_js("Data tidak ditemukan", [], $pelanggan);
             }
         }
@@ -151,13 +152,13 @@ class Pelanggan extends BaseController
         foreach (bulan() as $b) {
 
             if ($pelanggan['status'] == 1) {
-                if ($tahun == date('Y', $pelanggan['mulai_langganan']) && $b['satuan'] < (int)date('n', $pelanggan['mulai_langganan'])) {
+                if ($tahun == date('Y', $start) && $b['satuan'] < (int)date('n', $start)) {
                     continue;
                 } elseif ($tahun == date('Y') && $b['satuan'] > (int)date('n')) {
                     continue;
                 }
             } elseif ($pelanggan['status'] == 0) {
-                if ($tahun == date('Y', $pelanggan['mulai_langganan']) && $b['satuan'] < (int)date('n', $pelanggan['mulai_langganan'])) {
+                if ($tahun == date('Y', $start) && $b['satuan'] < (int)date('n', $start)) {
                     continue;
                 } elseif ($tahun == date('Y') && $b['satuan'] > (int)date('n', $pelanggan['akhir_langganan'])) {
                     continue;
@@ -276,7 +277,7 @@ class Pelanggan extends BaseController
     {
         $alamat = clear($this->request->getVar('alamat'));
 
-        $data = rangkuman($alamat);
+        $data = rangkuman($alamat)['data'];
 
 
         sukses_js("Ok", $data);

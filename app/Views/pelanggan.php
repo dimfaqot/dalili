@@ -1,10 +1,9 @@
 <?= $this->extend('templates/logged') ?>
 
 <?= $this->section('content') ?>
-
 <div class="my-2" style="position: relative;">
     <span class="text_main" style="font-size: small;">Alamat</span>
-    <input type="text" class="mb-2 form-control alamat" value="<?= options('alamat')[0]; ?>" placeholder="Alamat">
+    <input type="text" class="mb-2 form-control alamat" value="" placeholder="Alamat">
     <div class="data_list"></div>
 </div>
 
