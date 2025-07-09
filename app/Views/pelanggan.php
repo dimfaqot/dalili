@@ -14,44 +14,7 @@
 
 
 <div class="content">
-    <div class="mb-2" style="font-size: small;">TOTAL: <?= angka(count($data)); ?></div>
-    <?php foreach ($data as $i): ?>
-        <?php
-        $text = 'text-secondary';
-        $tgl = "-";
-        if ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] == 0) {
-            $text = 'text-danger';
-        } elseif ($i['identitas']['status'] == 0 && $i['identitas']['akhir_langganan'] > 0 && $i['total'] > 0) {
-            $text = 'text-warning';
-        } elseif ($i['identitas']['status'] == 1  && $i['total'] > 0) {
-            $text = 'text-warning';
-        } elseif ($i['identitas']['status'] == 1  && $i['total'] == 0) {
-            $text = 'text-success';
-        }
 
-        if ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] > 0) {
-            $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']) . ' - ' . date('d/m/Y', $i['identitas']['akhir_langganan']);
-        } elseif ($i['identitas']['mulai_langganan'] > 0 && $i['identitas']['akhir_langganan'] == 0) {
-            $tgl = date('d/m/Y', $i['identitas']['mulai_langganan']);
-        }
-
-
-        ?>
-        <div class="card mb-3 target_search" data-target="<?= $i['identitas']['nama']; ?>">
-            <div class="card-body border">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h6><i class="fa-solid fa-circle <?= $text; ?>"></i> <?= $i['identitas']['nama']; ?></h6>
-                        <small class="<?= ($i['identitas']['status'] == 0 ? "text-danger" : "text-success"); ?>"><?= $i['identitas']['paket']; ?> <?= ($tgl == "-" ? "-" : " | " . $tgl); ?></small>
-                    </div>
-                    <div>
-                        <div><a href="" class="update" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-pen-to-square"></i> Update <i class="fa-solid fa-chevron-right"></i></a></div>
-                        <div><a href="" class="text-success tagihan" data-id="<?= $i['identitas']['id']; ?>" style="text-decoration: none;"><i class="fa-solid fa-receipt"></i> Tagihan <i class="fa-solid fa-chevron-right"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 </div>
 
 
@@ -417,11 +380,7 @@
         })
     });
 
-
-    $(document).on('click', '.select_list', function(e) {
-        e.preventDefault();
-        let alamat = $(this).text();
-
+    let content_pelanggan = (alamat) => {
         post("pelanggan/pelanggan_by_alamat", {
             alamat
         }).then(res => {
@@ -468,6 +427,15 @@
             $(".data_list").html("");
             $(".alamat").val(alamat);
         })
+    }
+
+    content_pelanggan("<?= options('alamat')[0]; ?>");
+
+    $(document).on('click', '.select_list', function(e) {
+        e.preventDefault();
+        let alamat = $(this).text();
+        content_pelanggan(alamat);
+
     });
 
     $(document).on('click', '.on_modal', function(e) {
