@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
+        echo "<h1 style='text-align:center'>Time Over</h1>";
         return view('home', ['judul' => "Dashboard"]);
     }
     public function rangkuman()

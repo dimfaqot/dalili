@@ -6,6 +6,7 @@ class Landing extends BaseController
 {
     public function index(): string
     {
+        echo "<h1 style='text-align:center'>Time Over</h1>";
         // $csvData = [];
         // $filePath = WRITEPATH . 'data_dalili.csv';
 
@@ -145,5 +146,10 @@ class Landing extends BaseController
         //     $db->insert($data);
         // }
         return view('landing', ['judul' => "DALILI NET"]);
+    }
+
+    public function print()
+    {
+        return view('print', ['judul' => "PRINT"]);
     }
 }

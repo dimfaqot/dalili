@@ -1,6 +1,7 @@
 <?= $this->extend('templates/logged') ?>
 
 <?= $this->section('content') ?>
+
 <div class="my-2" style="position: relative;">
     <span class="text_main" style="font-size: small;">Alamat</span>
     <input type="text" class="mb-2 form-control alamat" value="" placeholder="Alamat">
@@ -76,7 +77,7 @@
 
 
 <script>
-    let data = <?= json_encode($data); ?>;
+    let data = [];
     let paket = <?= json_encode($paket); ?>;
     let tahuns = <?= json_encode(tahuns()); ?>;
     let metode = <?= json_encode(metode()); ?>;
@@ -264,7 +265,8 @@
     $(document).on('click', '.tagihan', function(e) {
         e.preventDefault();
         let id = $(this).data('id');
-        tagihan(id);
+        let tahun = $(".tahun").val();
+        tagihan(id, tahun);
     });
     $(document).on('click', '.btn_lunas', function(e) {
         e.preventDefault();

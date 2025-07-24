@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Landing::index');
+$routes->get('/print', 'Landing::print');
 
 
 $routes->get('/home', 'Home::index');

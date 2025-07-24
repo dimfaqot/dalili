@@ -9,9 +9,8 @@ class Pelanggan extends BaseController
     {
         $db = db('paket');
         $paket = $db->orderBy('paket', 'ASC')->get()->getResultArray();
-        $data = rangkuman(options('alamat')[0], 'full');
 
-        return view(menu()['url'], ['judul' => "Pelanggan", 'data' => $data['data'], 'paket' => $paket]);
+        return view(menu()['url'], ['judul' => "Pelanggan", 'paket' => $paket]);
     }
 
     public function add()
@@ -167,6 +166,9 @@ class Pelanggan extends BaseController
 
             $val = [];
             foreach ($q as $i) {
+                // $val = [date('m', $i['periode']) . "== " . $b['angka'] . " && " . date('Y', $i['periode']) . "==" . $tahun];
+                // $i['per'] = date('d/m/Y', $i['periode']);
+                // $val[] = $i;
                 if (date('m', $i['periode']) == $b['angka'] && date('Y', $i['periode']) == $tahun) {
                     $i['periode'] = $b['bulan'] . " " . date('Y', $i['periode']);
                     $val = $i;
