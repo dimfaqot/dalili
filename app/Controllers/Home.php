@@ -6,7 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        dd("<h1 style='text-align:center'>Time Over</h1>");
+        // dd("<h1 style='text-align:center'>Time Over</h1>");
         return view('home', ['judul' => "Dashboard"]);
     }
     public function rangkuman()
